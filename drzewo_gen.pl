@@ -96,7 +96,25 @@ dziadek(X,Y):-
 	mezczyzna(X),
 	rodzic(M,Y),
 	ojciec(X,M). 
+przodek(X,Y):-
+	rodzic(X,Y).
+
+przodek(X,Y):-
+	rodzic(X,Z),
+	przodek(Z,Y).
+
+poMieczu(X,Y):-
+	ojciec(Y,X).
 	
+poMieczu(X,Y):-
+	ojciec(Z,X),
+	poMieczy(Z,Y). 
+	
+poKadzieli(X,Y):-
+	matka(X,Y).
+poKadzieli(X,Y):-
+	matka(X,Z),
+	poKadzieli(Z,Y).	
 	
 	
 
