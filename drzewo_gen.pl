@@ -115,6 +115,30 @@ poKadzieli(X,Y):-
 poKadzieli(X,Y):-
 	matka(X,Z),
 	poKadzieli(Z,Y).	
+
+/*wypisz wszytskie kobiety*/
+wypisz : -
+	kobieta(X), 
+	write(X), 
+	nl, 
+	fail. 
+wypisz.
+ 
+wypisz2:- 
+	setof(X, kobieta(X), L),
+	write(L). 
+
+
+/*wszystkich synów którzy maj¹ braci*/
+synBrat(X):-
+	syn(X,_),
+	brat(X,Y),
+	mezczyzna(Y). 
+	
+
+wypisz3:-
+	setof(X, synBrat(X), L), 
+	write(L).
 	
 	
 
