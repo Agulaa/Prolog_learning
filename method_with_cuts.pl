@@ -8,7 +8,7 @@ silnia(N,X):-
 	X is N*X1.
 
 
-/*parzystosc rekurencyjnie z odciêciem*/
+/*parzystosc rekurencyjnie z odciÄ™ciem*/
 rparzysta(0) :- !.
 rparzysta(X) :-
 	X > 1,
@@ -73,31 +73,3 @@ perm([ ], [ ]) :- !.
 perm(L, [H | T]) :- 
 	del(H, L, L1), 
 	perm(L1, T).
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
