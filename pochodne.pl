@@ -57,3 +57,39 @@ d(tg(A), X, DA/cos(A)*cos(A)):- !,
 /*cotangens*/
 d(ctg(A), X, (-1)*DA/sin(A)*sin(A)):- !,
           d(A,X,DA).
+
+/*upraszczanie*/
+s(X, X) :-
+	atomic(X), !.
+s(X, Y) :-
+	X =.. [Op, A, B],
+  s(A, A1),
+  s(B, B1),
+  r(Op, A1, B1, Y).
+
+/*r dla 4 */
+r(+,X,0,X) :-!.
+r(+,0,X,X) :-!.
+r(-,X,X,0) :-!.
+r(-,X,0,X) :-!.
+r(*,_,0,0) :-!.
+r(*,0,_,0) :-!.
+r(*,X,1,X) :-!.
+r(*,1,X,1) :-!.
+r(Op, X, Y, Z) :-
+	Z =.. [Op, X, Y].
+
+
+s(X,Y):-
+  X=..[Op,A],
+  s(A, A1),
+  r(Op, A1, Y).
+
+/*r dla 3*/
+r(e,0,1):-!.
+r(ln,1,0):-!.
+r(sin, 0,0):-!.
+r(cos,0,1):-!.
+r(tg,0,0):-!.
+r(Op, A, Z):-
+  Z=..[Op,A].
